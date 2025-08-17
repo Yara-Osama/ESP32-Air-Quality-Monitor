@@ -1,0 +1,682 @@
+[
+    {
+        "id": "bc2f6e089aaf1418",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "430ab1ee50ed8e9d",
+        "type": "mqtt in",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "topic": "ESP32/humidity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c60cb1c30078fc77",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "7fc52533b6f41ef3",
+                "8853296167c5b84b"
+            ]
+        ]
+    },
+    {
+        "id": "aadfdeab13ca9602",
+        "type": "mqtt in",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "topic": "ESP32/dust",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c60cb1c30078fc77",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "712f842c70aefb75",
+                "8853296167c5b84b"
+            ]
+        ]
+    },
+    {
+        "id": "2709c349eb87aa83",
+        "type": "mqtt in",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "topic": "ESP32/carbonmonoxide",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c60cb1c30078fc77",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 420,
+        "wires": [
+            [
+                "26a662dad7974ff7",
+                "8853296167c5b84b"
+            ]
+        ]
+    },
+    {
+        "id": "cae38934aee2494c",
+        "type": "ui_gauge",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "group": "568891ed21cc4ddf",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity Level",
+        "label": "%",
+        "format": "{{msg.payload | number:2}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "35",
+        "seg2": "70",
+        "x": 700,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a0f826344f0b8f0e",
+        "type": "ui_chart",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "group": "568891ed21cc4ddf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity Tracker",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 710,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a314745206d48da3",
+        "type": "ui_gauge",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "group": "d15b50aab9eadfb6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Dust Level",
+        "label": "mg/m^3",
+        "format": "{{msg.payload | number:2}}",
+        "min": 0,
+        "max": "70",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "35",
+        "x": 710,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5a2de670f990c507",
+        "type": "ui_gauge",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "group": "c3e0af09ebcfd1b8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO Level",
+        "label": "ppm",
+        "format": "{{msg.payload | number:2}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "5",
+        "seg2": "8",
+        "x": 680,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "cb829867d01b2275",
+        "type": "ui_chart",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "group": "c3e0af09ebcfd1b8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "CO Tracker",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "40",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 690,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7fc52533b6f41ef3",
+        "type": "function",
+        "z": "bc2f6e089aaf1418",
+        "name": "function 1",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "cae38934aee2494c",
+                "a0f826344f0b8f0e"
+            ]
+        ]
+    },
+    {
+        "id": "398804b47bc3b53c",
+        "type": "ui_chart",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "group": "d15b50aab9eadfb6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Dust Tracker",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "70",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 710,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "712f842c70aefb75",
+        "type": "function",
+        "z": "bc2f6e089aaf1418",
+        "name": "function 2",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 220,
+        "wires": [
+            [
+                "a314745206d48da3",
+                "398804b47bc3b53c",
+                "02b0c8983b350912"
+            ]
+        ]
+    },
+    {
+        "id": "26a662dad7974ff7",
+        "type": "function",
+        "z": "bc2f6e089aaf1418",
+        "name": "function 3",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 420,
+        "wires": [
+            [
+                "5a2de670f990c507",
+                "cb829867d01b2275",
+                "0dea738477b3d5d1"
+            ]
+        ]
+    },
+    {
+        "id": "8853296167c5b84b",
+        "type": "function",
+        "z": "bc2f6e089aaf1418",
+        "name": "function 4",
+        "func": "let readingType = msg.topic; // Get the topic to identify which sensor the reading is from\n\n// Initialize the global sensor data object if it doesn’t already exist\nif (!global.get(\"sensorData\")) {\n    global.set(\"sensorData\", { humidity: null, co: null, dust: null, AQI: null });\n}\n\nlet sensorData = global.get(\"sensorData\");\n\n// Parse and assign the value based on the topic\nif (readingType === \"ESP32/humidity\") {\n    sensorData.humidity = parseFloat(msg.payload); // Parse humidity\n} else if (readingType === \"ESP32/carbonmonoxide\") {\n    sensorData.co = parseFloat(msg.payload); // Parse CO\n} else if (readingType === \"ESP32/dust\") {\n    sensorData.dust = parseFloat(msg.payload); // Parse dust density\n} else if (readingType === \"ESP32/AQI\") {\n    sensorData.AQI = parseInt(msg.payload); // Parse AQI\n}\n\n// Update the global variable\nglobal.set(\"sensorData\", sensorData);\n\n// Check if all readings are present before sending the output\nif (sensorData.humidity !== null && sensorData.co !== null && sensorData.dust !== null && sensorData.AQI !== null) {\n    msg.payload = JSON.stringify({\n        timestamp: new Date().toISOString(),\n        humidity: sensorData.humidity,\n        co: sensorData.co,\n        dust: sensorData.dust,\n        AQI: sensorData.AQI\n    }) + \"\\n\";\n\n    return msg; // Send the message for writing to the file\n} else {\n    return null; // Don't send anything if not all data is available\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 180,
+        "wires": [
+            [
+                "9ba4c962dc1c7a06"
+            ]
+        ]
+    },
+    {
+        "id": "9ba4c962dc1c7a06",
+        "type": "file",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "filename": "F:\\Work\\Capstone Projects\\Pollution_Tracker\\Sesnors2.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1170,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "24b88fce5cadcc39",
+        "type": "mqtt in",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "topic": "ESP32/AQI",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c60cb1c30078fc77",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 560,
+        "wires": [
+            [
+                "7392bc27b77cb78f",
+                "8853296167c5b84b"
+            ]
+        ]
+    },
+    {
+        "id": "7392bc27b77cb78f",
+        "type": "function",
+        "z": "bc2f6e089aaf1418",
+        "name": "function 5",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 560,
+        "wires": [
+            [
+                "9321838c4e944cb4",
+                "2774a722ad453428"
+            ]
+        ]
+    },
+    {
+        "id": "9321838c4e944cb4",
+        "type": "ui_gauge",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "group": "cfff8437ded757bd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "AQI",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 690,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "2774a722ad453428",
+        "type": "ui_chart",
+        "z": "bc2f6e089aaf1418",
+        "name": "",
+        "group": "cfff8437ded757bd",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "AQI Tracker",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 710,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5523dd7f72fca2b",
+        "type": "remote-access",
+        "z": "bc2f6e089aaf1418",
+        "confignode": "903e731430bb0ab9",
+        "name": "",
+        "verbose": 0,
+        "x": 880,
+        "y": 440,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0dea738477b3d5d1",
+        "type": "function",
+        "z": "bc2f6e089aaf1418",
+        "name": "function 6",
+        "func": "// Check if CO reading exceeds 0.1\nif (msg.payload> 9) {\n    // Create a notification message\n    msg.notification = {\n        title: \"CO Alert\",\n        message: `High CO reading: ${msg.payload}`\n    };\n    return msg;  // Send the message to the next node\n} else {\n    return null; // Do not send anything if the condition is not met\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 480,
+        "wires": [
+            [
+                "86f6b5c5947343fa"
+            ]
+        ]
+    },
+    {
+        "id": "86f6b5c5947343fa",
+        "type": "remote-notification",
+        "z": "bc2f6e089aaf1418",
+        "confignode": "903e731430bb0ab9",
+        "name": "",
+        "notificationTitle": "msg.notification.title",
+        "notificationTitleType": "msg",
+        "notificationBody": "msg.notification.message",
+        "notificationBodyType": "msg",
+        "notificationSound": "default",
+        "notificationSoundComputed": "payload.sound",
+        "notificationSoundComputedType": "msg",
+        "output": 1,
+        "x": 870,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "02b0c8983b350912",
+        "type": "function",
+        "z": "bc2f6e089aaf1418",
+        "name": "function 7",
+        "func": "if (msg.payload> 35) {\n    // Create a notification message\n    msg.notification = {\n        title: \"Dust Alert\",\n        message: `High Dust reading: ${msg.payload}`\n    };\n    return msg;  // Send the message to the next node\n} else {\n    return null; // Do not send anything if the condition is not met\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "7d396734b03284be"
+            ]
+        ]
+    },
+    {
+        "id": "7d396734b03284be",
+        "type": "remote-notification",
+        "z": "bc2f6e089aaf1418",
+        "confignode": "903e731430bb0ab9",
+        "name": "",
+        "notificationTitle": "msg.notification.title",
+        "notificationTitleType": "msg",
+        "notificationBody": "msg.notification.message",
+        "notificationBodyType": "msg",
+        "notificationSound": "default",
+        "notificationSoundComputed": "payload.sound",
+        "notificationSoundComputedType": "msg",
+        "output": 1,
+        "x": 910,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c60cb1c30078fc77",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "568891ed21cc4ddf",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "c8bc3eda3c7c1999",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d15b50aab9eadfb6",
+        "type": "ui_group",
+        "name": "Dust",
+        "tab": "c8bc3eda3c7c1999",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c3e0af09ebcfd1b8",
+        "type": "ui_group",
+        "name": "Carbon Monoxide",
+        "tab": "c8bc3eda3c7c1999",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "cfff8437ded757bd",
+        "type": "ui_group",
+        "name": "Air Quality Index",
+        "tab": "c8bc3eda3c7c1999",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "903e731430bb0ab9",
+        "type": "remote-config",
+        "name": "Node-RED UI",
+        "host": "localhost",
+        "protocol": "http",
+        "port": "1880",
+        "baseurl": "/ui",
+        "instancehash": "dx3ip1q5shgla8qfo83q961tct5zmpsp4ip8ij6bz7cyfsbjx112mvdtzypqlw8z",
+        "server": "nodered02.remote-red.com",
+        "region": "de"
+    },
+    {
+        "id": "c8bc3eda3c7c1999",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
